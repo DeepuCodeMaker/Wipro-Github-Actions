@@ -1,0 +1,23 @@
+name: Worklow demo
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      
+      - name: setup JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: "11"
+          distribution: temurin
+      
+      - name: java test
+        run: mvn test
+
+      - name: java package
+        run: mvn clean package
