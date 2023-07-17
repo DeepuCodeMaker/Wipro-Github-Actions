@@ -1,8 +1,8 @@
-name: Workflow 1 demo
+name: Workflow 2 demo
 on:
   push:
     branches:
-      - **
+      - master
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -15,6 +15,6 @@ jobs:
         with:
           java-version: "11"
           distribution: temurin
-      
-      - name: java test
-        run: mvn test
+          
+      - name: java package
+        run: mvn clean package
